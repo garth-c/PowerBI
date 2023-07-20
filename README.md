@@ -1,2 +1,2 @@
-# Powerbi
+# PowerBI
 PowerBI data visualization demo
