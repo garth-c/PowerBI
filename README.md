@@ -10,12 +10,16 @@ For the fact table, I inserted an order number that is used as a key to easily c
 
 Overall, I normalized a denormalized data set to demonstrate how this would work in reality as well as I modified several key aspects of the source data to demonstrate multiple features within PowerBI. 
 
+The file structure that I developed for this demo is shown below:
+
 <img width="190" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/4da7ac15-ac6b-4ef1-948b-188c4e71d29a">
 
 A snippet of the details table is below:
+
 <img width="656" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/be6cff1c-c057-4335-a4da-701fb0750372">
 
 A snippet of a typical fact table layout is below:
+
 <img width="155" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/cfe2ed42-8f0a-465b-95ae-4dd1a77344be">
 
 ---------------------------------------------------------------------------------------
