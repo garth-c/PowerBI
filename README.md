@@ -154,10 +154,25 @@ Note that DAX is a very capable tool and it is able to perform much more complic
 
 # create multiple dashboards
 
+The first dashboard is a high level static view of the sales environment.
+
+<img width="658" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/47567e3b-32a4-4b8e-b62a-fc9d735ffa72">
+
+
+The second dashboard is a fully interactive dashboard to explore sales trends using key time based parameters.
+
+<img width="665" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/301948fb-949e-42b9-ac91-69d60182a3ba">
+
+The third dashboard is an interactive dashboard to explore the profitability by location and product line.
+
+<img width="653" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/1782f362-2b8a-499a-bd2f-c03c439e4dbb">
+
+
 
 -------------------------------------------------
 
 # interpret the results
+
 
 
 
