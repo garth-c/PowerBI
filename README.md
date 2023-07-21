@@ -84,6 +84,61 @@ A screen shot of the imported data is shown below for reference.
 
 # create the table calculations with DAX
 
+There are 4 calculated fields that need to be determined using DAX. Note that there are other ways of doing this too such as with a measure, etc. but I wanted to showcase how DAX works. 
+
+The first calculated field is to extend the sales total. This is the unit cost * the unit price. The DAX code to this is below.
+
+```
+extend_sales = CALCULATE(SUM('transaction_table'[unit price]) * SUM(transaction_table[units sold]))
+```
+
+<img width="347" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/e4884e4d-b436-4b9b-b316-94ebbf633dae">
+
+The next calculated field to calculate the discount total. This is applying the discount rate (as a percent of the extended sales amount) from the discount rate fact table from the data model to the extendes sales amount that I just calculated above.
+
+```
+discount_amt = CALCULATE(SUM(transaction_table[extend_sales]) * SUM(discount_master[disc_prcnt]))
+```
+
+<img width="355" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/6d562ea1-927e-40fa-9b3b-b52a824532df">
+
+The next calculated field is to determine the net sales amount which is the extended sales from above less the calculated discount total also calculated above.
+```
+net_sales = CALCULATE(SUM(transaction_table[extend_sales]) - SUM(transaction_table[discount_amt]))
+```
+
+<img width="344" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/a92ed285-5175-4afd-b56e-372397adb39b">
+
+The last calculated field is to determine the gross margin for each sale. This is the net sales from above less the aggregated total order costs from the order cost summary table from the data model.
+
+```
+gross_margin = CALCULATE(SUM(transaction_table[net_sales]) - SUM(order_cost_summary[order_cost_ttl]))
+```
+
+<img width="373" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/b3184f8e-17a5-4962-8d32-d5d715cb47fd">
+
+The last of the DAX calculations are for date related fields. These will be used to analyze temporal trends in the sales data. The first calculated field is to extract the calendar day of the week from the sale date field.
+
+```
+calendar_date = FORMAT(transaction_table[sales date], "dddd")
+```
+
+<img width="242" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/5b1bfd11-dc46-4c6b-a73f-3a333384c2eb">
+
+The last of the date calculations is to extract the calendar month of the sales date data.
+
+```
+calendar_month = FORMAT(transaction_table[sales date], "MMMM")
+```
+
+<img width="220" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/64d57ee2-621d-44b1-a151-2c23829168ce">
+
+The final product for the details table with all of the new calculated fields is shown below.
+
+<img width="772" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/079b12d9-420b-469e-93a0-5178208d08cd">
+
+
+Note that DAX is a very capable tool and it is able to perform much more complicated calculations that I have demonstrated in this project.
 
 --------------------------------------------------------------------------------------------------
 
