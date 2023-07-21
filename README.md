@@ -125,7 +125,7 @@ calendar_date = FORMAT(transaction_table[sales date], "dddd")
 
 <img width="242" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/5b1bfd11-dc46-4c6b-a73f-3a333384c2eb">
 
-The last of the date calculations is to extract the calendar month of the sales date data.
+The second to last of the date calculations is to extract the calendar month of the sales date data.
 
 ```
 calendar_month = FORMAT(transaction_table[sales date], "MMMM")
@@ -133,14 +133,28 @@ calendar_month = FORMAT(transaction_table[sales date], "MMMM")
 
 <img width="220" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/64d57ee2-621d-44b1-a151-2c23829168ce">
 
+The last date calculation is to extract the calendar year from the sales date.
+
+```
+calendar_year = FORMAT(transaction_table[sales date], "YYYY")
+```
+
+<img width="218" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/fbd2f874-1b81-4ab3-b99c-22ed1aaa4921">
+
+
 The final product for the details table with all of the new calculated fields is shown below.
 
-<img width="772" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/079b12d9-420b-469e-93a0-5178208d08cd">
+<img width="818" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/be9c5636-11e1-4f54-ae10-1840662f0b40">
+
 
 
 Note that DAX is a very capable tool and it is able to perform much more complicated calculations that I have demonstrated in this project.
 
 --------------------------------------------------------------------------------------------------
+
+# create a report and a dashboard
+
+
 
 ------------------------------------------------------------------------------------------
 
