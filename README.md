@@ -22,6 +22,8 @@ A snippet of a typical fact table layout is below:
 
 <img width="155" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/cfe2ed42-8f0a-465b-95ae-4dd1a77344be">
 
+Note that no other data prep or data transformations were needed for these 6 files for this project.
+
 ---------------------------------------------------------------------------------------
 
 # road map for this project
@@ -35,6 +37,42 @@ A snippet of a typical fact table layout is below:
 
 # read in the source data files with Power Query and the M language
 
+The details table import is shown below. All of the data types are what they need to be and no data transformation will be needed/
+<img width="719" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/2818cdc3-8716-43c5-a548-68a0ae367943">
+
+to make the import process a little more dynamic, I created a parameter that has the path on my computer in it and I inserted that in the Source step in Power Query 'Source' step. The parameter is called 'local_path'
+
+<img width="202" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/b7832760-faeb-446d-a45a-eec1be8caeda">
+
+The parameter is referenced in the 'Source' step below:
+
+<img width="383" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/9d8ee9d5-d4cf-4424-ba89-5ae096b73b07">
+
+A screen print of the M language used for this import is below. This is where changes could be made directly to the query instructions if the UI from Power Query would not meet the needs of the import.
+
+<img width="698" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/cd0fcc68-fd02-4d06-9861-b783ae5d4ecd">
+
+The same Power Query steps were followed for all of the tables imported into PowerBI
+
+<img width="140" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/1a123dc3-d3f4-495d-963b-f6eb569eb5c7">
+
+After all 6 tables were imported, the data model now needs to be developed.
+
+------------------------------------------------------------------------------------------
+
+# create the data model
+
+The data model that I developed is shown below. This model uses the star schema approach where the transaction or details table is in the center and all of the related data from the master files or fact tables are then attached to it like points on a star. 
+
+<img width="398" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/3927339d-2d79-4443-ad7a-fd2f7717aa1a">
+
+A generic graphic for a star schema is below:
+![image](https://github.com/garth-c/PowerBI/assets/138831938/e322e6a5-2ffe-4e1d-947f-138b808936cd)
+
+If there were sub tables for the fact tables, then a snow flake schema would have been needed. 
+
+
+The relationship between these tables is shown in the connectors and for the fact tables this is a 1 to many relationship.
 
 ------------------------------------------------------------------------------------------
 
