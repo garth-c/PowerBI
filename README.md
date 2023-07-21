@@ -30,7 +30,7 @@ Note that no other data prep or data transformations were needed for these 6 fil
 + read in source data files with Power Query & the M language
 + create the data model
 + create the table calculations with DAX
-+ create a report and a dashboard
++ create multiple dashboards
 + interpret the results
 
 ----------------------------------------------------------------------------------------
@@ -152,7 +152,12 @@ Note that DAX is a very capable tool and it is able to perform much more complic
 
 --------------------------------------------------------------------------------------------------
 
-# create a report and a dashboard
+# create multiple dashboards
+
+
+-------------------------------------------------
+
+# interpret the results
 
 
 
