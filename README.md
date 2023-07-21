@@ -33,8 +33,12 @@ A snippet of a typical fact table layout is below:
 
 ----------------------------------------------------------------------------------------
 
+# read in the source data files with Power Query and the M language
 
 
+------------------------------------------------------------------------------------------
+
+WORK IN PROGRESS BELOW:
 
 
 
