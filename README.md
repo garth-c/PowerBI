@@ -27,9 +27,9 @@ Note that no other data prep or data transformations were needed for these 6 fil
 ---------------------------------------------------------------------------------------
 
 # road map for this project
-+ read in source data files with Power Query and the M language
++ read in source data files with Power Query & the M language
 + create the data model
-+ create the table calculations in DAX
++ create the table calculations with DAX
 + create a report and a dashboard
 + interpret the results
 
@@ -72,7 +72,20 @@ A generic graphic for a star schema is below:
 If there were sub tables for the fact tables, then a snow flake schema would have been needed. 
 
 
-The relationship between these tables is shown in the connectors and for the fact tables this is a 1 to many relationship.
+The relationship between these tables is shown in the connectors and for the fact tables this is a many to 1 relationship. Below is a depiction of a many to 1 relationship for one of the fact tables to the detail tables. Since the details table will have many instances of the key value and the fact table will have only one instance of the key value, this is the many to 1 relationship that I am referring to. The only relatinship in this data model that has a different association is the order cost summary table to the details table. Since the cost data is presumed to be from a different table altogether, a summarization of the aggregated costs relative to the specific order number is the relationship. So each processed order will have a summarize cost to associated with it.
+
+<img width="343" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/2e9512aa-7e9b-43a3-962d-41b904c9d571">
+
+A screen shot of the imported data is shown below for reference.
+
+<img width="476" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/f6d4e5ed-5623-4f11-b7eb-66710908329a">
+
+----------------------------------------------------------------------------------------------------
+
+# create the table calculations with DAX
+
+
+--------------------------------------------------------------------------------------------------
 
 ------------------------------------------------------------------------------------------
 
