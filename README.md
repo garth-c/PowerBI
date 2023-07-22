@@ -1,7 +1,7 @@
 # PowerBI demo
 
 Project purpose:
-Demonstrate the basic functionality in PowerBI to process data, create data models, reports, data visualizations, and dashboards. 
+Demonstrate the basic functionality in PowerBI (desktop version only) to process data, create data models, reports, data visualizations, and dashboards. 
 
 Data description:
 This data was a denormalized super set of data that I found on Kaggle.com. I separated the transaction data (details data) and put it into a separate file. I then created several master file tables (fact data) and put them into separate files. All of the fact tables and the details table have keys in order to demo the star schema approach to data model building. Also, all of these files are Excel files and I converted all of the relevant data to a table format in order to import them into PowerBI. 
