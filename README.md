@@ -26,6 +26,11 @@ Note that no other data prep or data transformations were needed for these 6 fil
 
 ---------------------------------------------------------------------------------------
 
+### Go back to my profile page
+[garth-c profile page] (https://github.com/garth-c)
+
+---------------------------------------------------------------------------------------------
+
 # road map for this project
 + read in source data files with Power Query & the M language
 + create the data model
@@ -178,18 +183,7 @@ The third dashboard is an interactive dashboard to explore the profitability by 
 
 ------------------------------------------------------------------------------------------
 
-WORK IN PROGRESS BELOW:
+### Go back to my profile page
+[garth-c profile page] (https://github.com/garth-c)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+------------------------------------------------------------------------------------------------
