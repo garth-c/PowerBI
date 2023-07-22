@@ -35,14 +35,13 @@ Note that no other data prep or data transformations were needed for these 6 fil
 + read in source data files with Power Query & the M language
 + create the data model
 + create the table calculations with DAX
-+ create multiple dashboards
-+ interpret the results
++ create multiple dashboards & interpret the results
 
 ----------------------------------------------------------------------------------------
 
 # read in the source data files with Power Query and the M language
 
-The details table import is shown below. All of the data types are what they need to be and no data transformation will be needed/
+The details table import is shown below. All of the data types are what they need to be and no data transformation will be needed.
 <img width="719" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/2818cdc3-8716-43c5-a548-68a0ae367943">
 
 to make the import process a little more dynamic, I created a parameter that has the path on my computer in it and I inserted that in the Source step in Power Query 'Source' step. The parameter is called 'local_path'
@@ -157,31 +156,22 @@ Note that DAX is a very capable tool and it is able to perform much more complic
 
 --------------------------------------------------------------------------------------------------
 
-# create multiple dashboards
+# create multiple dashboards & interpret the results
 
-The first dashboard is a high level static view of the sales environment.
+The first dashboard is a high level static view of the sales environment. This dashboard shows an analysis and decomposition of sales data by specific parameters that would be useful to management. This dashboard breaks downs sales by customer type, customer country, as well as it displays sales (gross and net) over time to look for visible trends. In addition, it displays the discount amount and gross margin over time to also look for obvious visible trends and the relationship of discount and gross marging.
 
 <img width="658" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/47567e3b-32a4-4b8e-b62a-fc9d735ffa72">
 
 
-The second dashboard is a fully interactive dashboard to explore sales trends using key time based parameters.
+The second dashboard is a fully interactive dashboard to explore sales trends using key time based parameters. Management would be able to select whichever sector of the business that was being evaluated and quickly evaluate the gross sales over time as well as which calendar day of the week had the most sales. All of the filters work together on this dashboard so drilling down into a segment or a customer type is very simple.
 
 <img width="665" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/301948fb-949e-42b9-ac91-69d60182a3ba">
 
-The third dashboard is an interactive dashboard to explore the profitability by location and product line.
+The third dashboard is an interactive dashboard to explore the profitability by location and product line. This dashboard would be a key one to investigate for management since the focus on on gross margin which then relates directly to the overall sales order level of profitability. The dashboard is also fully interactive by customer type and it displays gross margin by country and product as well as it tracks the overall gross margin compared to the goal. The last part of this dashboard has a card that displays the overall totals for gross sales, discount amount and net sales. The interactivity is very important to use in drilling down order level profitability by customer type. 
 
 <img width="653" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/1782f362-2b8a-499a-bd2f-c03c439e4dbb">
 
-
-
 -------------------------------------------------
-
-# interpret the results
-
-
-
-
-------------------------------------------------------------------------------------------
 
 ### Go back to my profile page
 [garth-c profile page] (https://github.com/garth-c)
