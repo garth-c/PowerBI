@@ -1,11 +1,11 @@
 # PowerBI demo
 
 Project purpose:
-In this Power BI demo project, I wil present an einteractive showcase of data visualization and business intelligence capabilities. Using Power BI, I create dashboards that offer valuable insights from a real-world dataset.
+In this Power BI demo project, I wil present an interactive showcase of data visualization and business intelligence capabilities. Using Power BI, I create dashboards that offer valuable insights from a real-world dataset.
 
 The project begins with data preparation and shaping, ensuring that the dataset is ready for integration into Power BI. Using Power BI's intuitive interface, I design visually useful charts, graphs, and tables to present key metrics and trends.
 
-Specifically, I will demonstrate the basic functionality in PowerBI (desktop version only) to process data, create data models, reports, data visualizations, and dashboards. 
+Specifically, I will demonstrate the basic functionality in PowerBI (desktop version only) to process data, create data models, reports, data visualizations, and dashboards. However, all of this would normally be published to Power BI Service so that other would be able to use the output. 
 
 Data description:
 This data was a denormalized super set of data that I found on Kaggle.com. I separated the transaction data (details data) and put it into a separate file. I then created several master file tables (fact data) and put them into separate files. All of the fact tables and the details table have keys in order to demo the star schema approach to data model building. Also, all of these files are Excel files and I converted all of the relevant data to a table format in order to import them into PowerBI. 
