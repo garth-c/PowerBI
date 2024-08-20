@@ -1,7 +1,7 @@
 # PowerBI demo
 
 Project purpose:
-In this Power BI demo project, I wil present an interactive showcase of data visualization and business intelligence capabilities. Using Power BI, I create dashboards that offer valuable insights from a real-world dataset.
+In this Power BI demo project, I will present an interactive showcase of data visualization and business intelligence capabilities. Using Power BI, I create dashboards that offer valuable insights from a real-world dataset.
 
 The project begins with data preparation and shaping, ensuring that the dataset is ready for integration into Power BI. Using Power BI's intuitive interface, I design visually useful charts, graphs, and tables to present key metrics and trends.
 
