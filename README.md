@@ -6,14 +6,14 @@ To analyze customer sales data for the purpose of increasing customer sales in t
 Project purpose:
 In this Power BI demo project, I will present an interactive showcase of data visualization and business intelligence capabilities. Using Power BI, I create dashboards that offer valuable insights from a real-world dataset.
 
-The project begins with data preparation and shaping, ensuring that the dataset is ready for integration into Power BI. Using Power BI's intuitive interface, I design visually useful charts, graphs, and tables to present key metrics and trends.
+The project begins with data preparation and shaping, ensuring that the dataset is ready for intake into Power BI. Using Power BI's intuitive interface, I design visually useful charts, graphs, and tables to present key metrics and trends.
 
-Specifically, I will demonstrate the basic functionality in PowerBI (desktop version only) to process data, create data models, reports, data visualizations, and dashboards. However, all of this would normally be published to Power BI Service so that others would be able to use the output. In addition, this project is only a sampling of the capabilities of Power BI - this tool is very capable and it has the distinct advantage of being part of the Microsoft ecosystem and it is tightly coupled and well integrated with other Microsoft tools like Azure data science tools, SQL Server, etc. Also, I have my Microsoft Certified: Power BI Data Analyst Associate certification so this demo project only represents a sliver of what I am capable of developing with Power BI. 
+Specifically, I will demonstrate the basic functionality in PowerBI (desktop version only) to process data, create data models, reports, data visualizations, and dashboards. However, all of this would normally be published to Power BI Service so that others would be able to use the output. Using PowerBI Service, there are significantly more benefits available to a developer such as row level security, data sharing, app publishing, etc. In addition, this project is only a sampling of the capabilities of Power BI - this tool is very capable and it has the distinct advantage of being part of the Microsoft ecosystem as well as it is tightly coupled and well integrated with other Microsoft tools like Azure data science tools, SQL Server, etc. Also, I have my Microsoft Certified: Power BI Data Analyst Associate certification so this demo project only represents a sliver of what I am capable of developing with Power BI. 
 
 Data description:
-This data was a denormalized super set of data that I found on Kaggle.com. I separated the transaction data (details data) and put it into a separate file. I then created several master file tables (fact data) and put them into separate files. All of the fact tables and the details table have keys in order to demo the star schema approach to data model building. Also, all of these files are Excel files and I converted all of the relevant data to a table format in order to import them into PowerBI. 
+This data was a denormalized super set of data that I found on Kaggle.com. I normalized the data (separated) the transaction data (details data) and put it into a separate file as well as I then created several master file tables (fact data) and put them into separate files. All of the fact tables and the details table have keys in order to demo the star schema approach to data model building. Also, all of these files are Excel files and I imported them into PowerBI rather than use of the other data import methods. In a real business setting, considerations for incremental refreshing, direct querying, live connections, etc. would need to be evaluated given the objective of the project and the available data sources.  
 
-For the fact table, I inserted an order number that is used as a key to easily connect the respective cost data for that specific order from a summarized order cost table. I also removed all of the extended amounts around sales totals and discounts in order to demonstrate the calculation functionality in DAX. I also rounded the units sold to an integer value along with the order unit sales price to keep the math simple. The details table dimensions are 700x8 and the fact tables are all very small with only a up to 6 or 7 records each and a few columns - depending on the table.
+For the fact table, I inserted an order number that is used as a key to easily connect the respective cost data for that specific order from a summarized order cost table. I also removed all of the extended amounts around sales totals and discounts in order to demonstrate the calculation functionality in DAX. I also rounded the units sold to an integer value (whole number) along with the order unit sales price to keep the math simple. The details table dimensions are 700x8 and the fact tables are all very small with only a up to 6 or 7 records each and a few columns - depending on the table.
 
 Overall, I normalized a denormalized data set to demonstrate how this would work in reality as well as I modified several key aspects of the source data to demonstrate multiple features within PowerBI. 
 
@@ -52,7 +52,7 @@ Note that no other data prep or data transformations were needed for these 6 fil
 The details table import is shown below. All of the data types are what they need to be and no data transformation will be needed.
 <img width="719" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/2818cdc3-8716-43c5-a548-68a0ae367943">
 
-to make the import process a little more dynamic, I created a parameter that has the path on my computer in it and I inserted that in the Source step in Power Query 'Source' step. The parameter is called 'local_path'
+To make the import process a little more dynamic, I created a parameter that has the path on my computer in it and I inserted that in the Source step in Power Query 'Source' step. The parameter is called 'local_path'. Note that the M language is very dynamic and many other features could have been used such query parameters, functions for repeated operations, pivot/unpivot, summary tables, etc. 
 
 <img width="202" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/b7832760-faeb-446d-a45a-eec1be8caeda">
 
@@ -81,10 +81,10 @@ The data model that I developed is shown below. This model uses the star schema 
 A generic graphic for a star schema is below:
 ![image](https://github.com/garth-c/PowerBI/assets/138831938/e322e6a5-2ffe-4e1d-947f-138b808936cd)
 
-If there were sub tables for the fact tables, then a snow flake schema would have been needed. 
+If there were sub-dimension tables for the various fact tables, then a snow flake schema would have been needed. 
 
 
-The relationship between these tables is shown in the connectors and for the fact tables this is a many to 1 relationship. Below is a depiction of a many to 1 relationship for one of the fact tables to the detail tables. Since the details table will have many instances of the key value and the fact table will have only one instance of the key value, this is the many to 1 relationship that I am referring to. The only relatinship in this data model that has a different association is the order cost summary table to the details table. Since the cost data is presumed to be from a different table altogether, a summarization of the aggregated costs relative to the specific order number is the relationship. So each processed order will have a summarize cost to associated with it.
+The relationship between these tables is shown in the connectors and for the fact tables this is a many to 1 relationship. Below is a depiction of a many to 1 relationship for one of the fact tables to the detail tables. Since the details table will have many instances of the key value and the fact table will have only one instance of the key value, this is the many to 1 relationship that I am referring to. The only relationship in this data model that has a different association is the order cost summary table to the details table. Since the cost data is presumed to be from a different table altogether, a summarization of the aggregated costs relative to the specific order number is the relationship. So each processed order will have a summarize cost to associated with it.
 
 <img width="343" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/2e9512aa-7e9b-43a3-962d-41b904c9d571">
 
@@ -96,9 +96,9 @@ A screen shot of the imported data is shown below for reference.
 
 # create the table calculations with DAX
 
-There are 4 calculated fields that need to be determined using DAX. Note that there are other ways of doing this too such as with a measure, etc. but I wanted to showcase how DAX works. 
+There are 4 calculated fields that need to be determined using DAX. Note that there are other ways of doing this too such as with a Measure, etc. but I wanted to showcase how DAX works as a calculated column instead. Using the calculated column approach does increase the size of the model but since this is a small project, this wasn't a big concern.  
 
-The first calculated field is to extend the sales total. This is the unit cost * the unit price. The DAX code to this is below.
+The first calculated column is to extend the sales total. This is the unit cost * the unit price. The DAX code to this is below.
 
 ```
 extend_sales = CALCULATE(SUM('transaction_table'[unit price]) * SUM(transaction_table[units sold]))
@@ -106,7 +106,7 @@ extend_sales = CALCULATE(SUM('transaction_table'[unit price]) * SUM(transaction_
 
 <img width="347" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/e4884e4d-b436-4b9b-b316-94ebbf633dae">
 
-The next calculated field to calculate the discount total. This is applying the discount rate (as a percent of the extended sales amount) from the discount rate fact table from the data model to the extendes sales amount that I just calculated above.
+The next calculated column to code the discount total. This is applying the discount rate (as a percent of the extended sales amount) from the discount rate fact table from the data model to the extendes sales amount that I just calculated above.
 
 ```
 discount_amt = CALCULATE(SUM(transaction_table[extend_sales]) * SUM(discount_master[disc_prcnt]))
@@ -114,14 +114,14 @@ discount_amt = CALCULATE(SUM(transaction_table[extend_sales]) * SUM(discount_mas
 
 <img width="355" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/6d562ea1-927e-40fa-9b3b-b52a824532df">
 
-The next calculated field is to determine the net sales amount which is the extended sales from above less the calculated discount total also calculated above.
+The next calculated column is to determine the net sales amount which is the extended sales from above less the calculated discount total also calculated above.
 ```
 net_sales = CALCULATE(SUM(transaction_table[extend_sales]) - SUM(transaction_table[discount_amt]))
 ```
 
 <img width="344" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/a92ed285-5175-4afd-b56e-372397adb39b">
 
-The last calculated field is to determine the gross margin for each sale. This is the net sales from above less the aggregated total order costs from the order cost summary table from the data model.
+The last calculated column is to determine the gross margin for each sale. This is the net sales from above less the aggregated total order costs from the order cost summary table from the data model.
 
 ```
 gross_margin = CALCULATE(SUM(transaction_table[net_sales]) - SUM(order_cost_summary[order_cost_ttl]))
@@ -129,7 +129,7 @@ gross_margin = CALCULATE(SUM(transaction_table[net_sales]) - SUM(order_cost_summ
 
 <img width="373" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/b3184f8e-17a5-4962-8d32-d5d715cb47fd">
 
-The last of the DAX calculations are for date related fields. These will be used to analyze temporal trends in the sales data. The first calculated field is to extract the calendar day of the week from the sale date field.
+The last of the DAX calculations are for date related fields. These will be used to analyze temporal trends in the sales data. The first calculated column is to extract the calendar day of the week from the sale date field.
 
 ```
 calendar_date = FORMAT(transaction_table[sales date], "dddd")
@@ -154,13 +154,12 @@ calendar_year = FORMAT(transaction_table[sales date], "YYYY")
 <img width="218" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/fbd2f874-1b81-4ab3-b99c-22ed1aaa4921">
 
 
-The final product for the details table with all of the new calculated fields is shown below.
+The final product for the details table with all of the new calculated columns is shown below.
 
 <img width="818" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/be9c5636-11e1-4f54-ae10-1840662f0b40">
 
 
-
-Note that DAX is a very capable tool and it is able to perform much more complicated calculations that I have demonstrated in this project.
+Another approach is to create a dedicated date table using DAX (marking them as Date tables) and then make copies of it in the semantic model as needed to connect to other tables as appropriate. Or if only one master date table is created to then create multiple connections to other tables in the semantic model and then code the USERELATIONSHIP function for DAX measures as needed. Any of these approaches would work just fine and then selecting the best one for the circumstances and maintainability becomes the decision to make. Note that DAX is a very capable tool and it is able to perform much more complicated calculations that I have demonstrated in this project.
 
 --------------------------------------------------------------------------------------------------
 
@@ -171,7 +170,7 @@ The first dashboard is a high level static view of the sales environment. This d
 <img width="658" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/47567e3b-32a4-4b8e-b62a-fc9d735ffa72">
 
 
-The second dashboard is a fully interactive dashboard to explore sales trends using key time based parameters. Management would be able to select whichever sector of the business that was being evaluated and quickly evaluate the gross sales over time as well as which calendar day of the week had the most sales. All of the filters work together on this dashboard so drilling down into a segment or a customer type is very simple.
+The second dashboard is a fully interactive dashboard to explore sales trends using key time based parameters. Management would be able to select whichever sector of the business that was being evaluated and quickly evaluate the gross sales over time as well as which calendar day of the week had the most sales. All of the filters (slicers) are synched work together on this dashboard so drilling down into a segment or a customer type is very simple. In addition, bookmarks and buttons could have been used to create custom views for the end users if needed. Also, PowerBI supports drill downs and drill throughs which could have been implemented in this dashboard if needed. 
 
 <img width="665" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/301948fb-949e-42b9-ac91-69d60182a3ba">
 
