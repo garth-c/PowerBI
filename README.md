@@ -45,6 +45,22 @@ Note that no other data prep or data transformations were needed for these 6 fil
 + create the table calculations with DAX
 + create multiple dashboards & interpret the results
 
+```mermaid
+graph TD;
+    %% Define Nodes
+    A[<b>Ingest & Transform</b><br/>Source Data Files] -->|M Language| B(<b>Data Modeling</b><br/>Schema Design & Relationships)
+    B --> C(<b>Analytical Engineering</b><br/>Measure Creation via DAX)
+    C --> D[<b>Data Storytelling</b><br/>Executive Dashboards]
+    D --> E{<b>Business Intelligence</b><br/>Interpretation & Action}
+
+    %% Styling
+    style A fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style B fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style C fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style D fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style E fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+```
+
 ----------------------------------------------------------------------------------------
 
 # read in the source data files with Power Query and the M language
@@ -74,7 +90,7 @@ After all 6 tables were imported, the data model now needs to be developed.
 
 # create the data model
 
-The data model that I developed is shown below. This model uses the star schema approach where the transaction or details table is in the center and all of the related data from the master files or fact tables are then attached to it like points on a star. 
+The data model that I developed is shown below. This model uses the **star** schema approach where the transaction or details table is in the center and all of the related data from the master files (or dimension tables) are then attached to it like points on a star. 
 
 <img width="398" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/3927339d-2d79-4443-ad7a-fd2f7717aa1a">
 
@@ -84,7 +100,7 @@ A generic graphic for a star schema is below:
 If there were sub-dimension tables for the various fact tables, then a snow flake schema would have been needed. 
 
 
-The relationship between these tables is shown in the connectors and for the fact tables this is a many to 1 relationship. Below is a depiction of a many to 1 relationship for one of the fact tables to the detail tables. Since the details table will have many instances of the key value and the fact table will have only one instance of the key value, this is the many to 1 relationship that I am referring to. The only relationship in this data model that has a different association is the order cost summary table to the details table. Since the cost data is presumed to be from a different table altogether, a summarization of the aggregated costs relative to the specific order number is the relationship. So each processed order will have a summarize cost to associated with it.
+The relationship between these tables is shown in the connectors and for the fact tables this is a many to 1 relationship. Below is a depiction of a many to 1 relationship for one of the fact tables to the detail tables. Since the details table will have many instances of the key value and the fact table will have only one instance of the key value, this is the many to 1 relationship that I am referring to. The only relationship in this data model that has a different association is the order cost summary table to the details table. Since the cost data is presumed to be from a different table altogether, a summarization of the aggregated costs relative to the specific order number is the relationship. So each processed order will have a summarized cost to associated with it.
 
 <img width="343" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/2e9512aa-7e9b-43a3-962d-41b904c9d571">
 
@@ -165,7 +181,7 @@ Another approach is to create a dedicated date table using DAX (marking them as 
 
 # create multiple dashboards & interpret the results
 
-The first dashboard is a high level static view of the sales environment. This dashboard shows an analysis and decomposition of sales data by specific parameters that would be useful to management. This dashboard breaks downs sales by customer type, customer country, as well as it displays sales (gross and net) over time to look for visible trends. In addition, it displays the discount amount and gross margin over time to also look for obvious visible trends and the relationship of discount and gross marging.
+The first dashboard is a high level static view of the sales environment. This dashboard shows an analysis and decomposition of sales data by specific parameters that would be useful to management. This dashboard breaks downs sales by customer type, customer country, as well as it displays sales (gross and net) over time to look for visible trends. In addition, it displays the discount amount and gross margin over time to also look for obvious visible trends and the relationship of discount and gross margin.
 
 <img width="658" alt="image" src="https://github.com/garth-c/PowerBI/assets/138831938/47567e3b-32a4-4b8e-b62a-fc9d735ffa72">
 
