@@ -1,17 +1,22 @@
 # PowerBI demo
+--------------------------------------------------------------
 
 Business purpose:
 To analyze customer sales data for the purpose of increasing customer sales in the future. 
 
+--------------------------------------------------------------
+
 Project purpose:
-In this Power BI demo project, I will present an interactive showcase of data visualization and business intelligence capabilities. Using Power BI, I create dashboards that offer valuable insights from a real-world dataset.
+In this Power BI demo project, I will present an interactive showcase of data visualization and business intelligence capabilities. Using Power BI, I will create dashboards that offer valuable insights from a real-world dataset.
+
+--------------------------------------------------------------------
 
 The project begins with data preparation and shaping, ensuring that the dataset is ready for intake into Power BI. Using Power BI's intuitive interface, I design visually useful charts, graphs, and tables to present key metrics and trends.
 
 Specifically, I will demonstrate the basic functionality in PowerBI (desktop version only) to process data, create data models, reports, data visualizations, and dashboards. However, all of this would normally be published to Power BI Service so that others would be able to use the output. Using PowerBI Service, there are significantly more benefits available to a developer such as row level security, data sharing, app publishing, etc. In addition, this project is only a sampling of the capabilities of Power BI - this tool is very capable and it has the distinct advantage of being part of the Microsoft ecosystem as well as it is tightly coupled and well integrated with other Microsoft tools like Azure data science tools, SQL Server, etc. Also, I have my Microsoft Certified: Power BI Data Analyst Associate certification so this demo project only represents a sliver of what I am capable of developing with Power BI. 
 
 Data description:
-This data was a denormalized super set of data that I found on Kaggle.com. I normalized the data (separated) the transaction data (details data) and put it into a separate file as well as I then created several master file tables (fact data) and put them into separate files. All of the fact tables and the details table have keys in order to demo the star schema approach to data model building. Also, all of these files are Excel files and I imported them into PowerBI rather than use of the other data import methods. In a real business setting, considerations for incremental refreshing, direct querying, live connections, etc. would need to be evaluated given the objective of the project and the available data sources.  
+This data was a denormalized super set of data that I found on Kaggle.com. I normalized the data (separated) the transaction data (details data) and put it into a separate file as well as I then created several master file tables (fact data) and put them into separate files. All of the fact tables and the details table have keys in order to demo the star schema approach to data model building. Also, all of these files are Excel files and I imported them into PowerBI rather than use the other data import methods. In a real business setting, considerations for incremental refreshing, direct querying, live connections, etc. would need to be evaluated given the objective of the project and the available data sources.  
 
 For the fact table, I inserted an order number that is used as a key to easily connect the respective cost data for that specific order from a summarized order cost table. I also removed all of the extended amounts around sales totals and discounts in order to demonstrate the calculation functionality in DAX. I also rounded the units sold to an integer value (whole number) along with the order unit sales price to keep the math simple. The details table dimensions are 700x8 and the fact tables are all very small with only a up to 6 or 7 records each and a few columns - depending on the table.
 
